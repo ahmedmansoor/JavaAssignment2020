@@ -21,7 +21,7 @@ public class ShoppingCart {
         System.out.println("\t\t1 - ADD NEW ITEMS");
         System.out.println("\t\t2 - REMOVE ITEMS");
         System.out.println("\t\t3 - DISPLAY ALL ITEMS AVAILABLE");
-        System.out.println("\t\t4 - SEARCH FOR AN ITEM");
+        System.out.println("\t\t4 - SEARCH FOR AVAILABLE ITEMS");
         System.out.println("\t\t5 - RECORD A SALE");
         System.out.println("\t\t6 - GENERATE SALES REPORT");
         System.out.println("---------------------------------------------------");
@@ -87,11 +87,12 @@ public class ShoppingCart {
         String itemName;
         double itemPrice;
 
-        System.out.println("\t\t ADD ITEM");
+        System.out.println("\t\t ADD ITEMS");
         System.out.println("Enter item name: ");
         itemName = input.next();
         System.out.println("Enter item price: ");
         itemPrice = input.nextDouble();
+        System.out.println("\t[ITEM ADDED]");
 
         Item item = new Item(itemName, itemPrice);
         itemList.add(item);
@@ -100,21 +101,20 @@ public class ShoppingCart {
     public static void removeItems() {
         String itemRemove;
         
-        System.out.println("\t\t REMOVE ITEM");
+        System.out.println("\t\t REMOVE ITEMS");
         System.out.println("Enter item name: ");
         itemRemove = input.next();
 
         for (int i=0; i<itemList.size();i++) {
             if (itemList.get(i).name.contains(itemRemove)) {
                 itemList.remove(i);
-                System.out.println("\t\t~~~ Items Has Been Removed ~~~");
+                System.out.println("\t\t[ITEM REMOVED]");
             }
         }
     }
 
     public static void showAllItems() {
 
-        System.out.println("---------------------------------------------------");
         System.out.println("\t\tITEMS AVAILABLE");
         for (int i=0; i<itemList.size(); i++) {
             System.out.println("Name: "+itemList.get(i).name);
@@ -125,12 +125,14 @@ public class ShoppingCart {
     public static void searchItems() {
         String itemSearch;
         
+        System.out.println("\t\tSEARCH ITEMS");
         System.out.println("Enter item name: ");
         itemSearch = input.next();
 
         for (int i=0; i<itemList.size();i++) {
             if (itemList.get(i).name.equalsIgnoreCase(itemSearch)) {
-                System.out.println("\t\t~~~ Item Is Available! ~~~");
+                
+                System.out.println("\t\t[ITEM FOUND]");
             }
         }
     }
@@ -141,15 +143,18 @@ public class ShoppingCart {
         double saleAmount = 0.00;
         int qty;
         
+        System.out.println("\t\tENTER SALES DETAILS");
         System.out.println("Name of item sold: ");
         itemSold = input.next();
         
         for (int i=0; i<itemList.size(); i++) {
             if (itemList.get(i).name.equalsIgnoreCase(itemSold)) {
-                System.out.println("Item Available");
-                System.out.println("Enter item price: "+itemList.get(i).price);
+                 System.out.println("\tITEM: "+itemList.get(i).name);
+                System.out.println("\tMVR: "+itemList.get(i).price);
                 System.out.println("Enter qty: ");
                 qty = input.nextInt();
+                System.out.println("\t[SALES RECORDED]");
+
 
                 saleName = itemList.get(i).name;
                 saleAmount = (itemList.get(i).price *qty);
