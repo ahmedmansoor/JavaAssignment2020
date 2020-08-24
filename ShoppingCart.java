@@ -116,9 +116,12 @@ public class ShoppingCart {
     public static void showAllItems() {
 
         System.out.println("\t\tITEMS AVAILABLE");
+        billFormat();
         for (int i=0; i<itemList.size(); i++) {
-            System.out.println("Name: "+itemList.get(i).name);
-            System.out.println("Price: "+itemList.get(i).price);
+            // System.out.println("Name: "+itemList.get(i).name);
+            // System.out.println("Price: "+itemList.get(i).price);
+            System.out.println(itemList.get(i).name+"\t"+itemList.get(i).price);
+
         }
     }
 
@@ -149,8 +152,10 @@ public class ShoppingCart {
         
         for (int i=0; i<itemList.size(); i++) {
             if (itemList.get(i).name.equalsIgnoreCase(itemSold)) {
-                 System.out.println("\tITEM: "+itemList.get(i).name);
-                System.out.println("\tMVR: "+itemList.get(i).price);
+                // System.out.println("\tITEM: "+itemList.get(i).name);
+                // System.out.println("\tMVR: "+itemList.get(i).price);
+                billFormat();
+                System.out.println("\t"+itemList.get(i).name+"\t"+itemList.get(i).price);
                 System.out.println("Enter qty: ");
                 qty = input.nextInt();
                 System.out.println("\t[SALES RECORDED]");
@@ -171,11 +176,17 @@ public class ShoppingCart {
         System.out.println("\t\tSales Report");
         
         for (int i=0;i<billsList.size();i++) {
-            System.out.println("Name: \t"+billsList.get(i).name);
-            System.out.println("Price: \t"+billsList.get(i).price);
+            // System.out.println("Name: \t"+billsList.get(i).name);
+            // System.out.println("Price: \t"+billsList.get(i).price);
+            billFormat();
+            System.out.println(billsList.get(i).name+"\t"+billsList.get(i).price);
             total = total + billsList.get(i).price;
         }
         System.out.println("---------------------------------------------------");
         System.out.println("Total(MVR): \t"+total);
+    }
+
+    public static void billFormat() {
+        System.out.println("ITEM \tMVR");
     }
 }
