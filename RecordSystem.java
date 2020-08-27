@@ -147,10 +147,6 @@ public class RecordSystem {
                 
                 System.out.println("\t\t[ITEM FOUND]");
             }
-            // else if (itemList.get(i).name.equalsIgnoreCase(itemSearch)) {
-            //    searchItems();
-            //    System.out.println("\t\t[ITEM NOT FOUND. ENTER NAME AGAIN]");
-            // }
         }
     }
 

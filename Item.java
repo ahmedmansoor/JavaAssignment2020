@@ -16,5 +16,4 @@ public class Item {
         this.name = itemName;
         this.price = itemPrice;
     }
-
 }
